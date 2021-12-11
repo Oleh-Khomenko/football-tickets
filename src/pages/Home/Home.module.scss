@@ -1,0 +1,61 @@
+.content_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.stadium_wrapper {
+  position: relative;
+  min-height: 250px;
+  height: 50vh;
+  max-height: 600px;
+  width: 100%;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4em;
+  padding: 1rem;
+
+  background: rgba(183, 183, 183, 0.6);
+  box-sizing: border-box;
+
+  font-size: 1rem;
+  font-weight: bold;
+
+  cursor: pointer;
+  transition: 0.3s ease-in-out all;
+
+  &:hover {
+    background: rgba(165, 165, 165, 0.8);
+  }
+}
+
+@media (max-width: 48rem) {
+  .cell {
+    min-width: 2em;
+    padding: 0.5rem;
+  }
+}
+
+.cell_prices {
+  margin-top: 2rem;
+}
+
+@media (max-width: 34rem) {
+  .cell {
+    font-size: 0.8rem!important;
+    padding: 0.25rem;
+  }
+}
+
+@media (max-width: 25rem) {
+  .cell {
+    font-size: 0.6rem!important;
+    padding: 0.25rem;
+  }
+}

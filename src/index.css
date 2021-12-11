@@ -1,13 +1,41 @@
+:root {
+  --default-font-family: 'Montserrat', sans-serif;
+  --accent-font-family: 'DM sans', sans-serif;
+  --background-color: #fff;
+  --button-background: #ffe2ffff;
+  --accent-text-color: #206273;
+  --default-text-color: #348498;
+  --component-text-color: #030303ff;
+  --component-secondary-color: #353945;
+
+  font-size: 16px; /* for using rem unit */
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  color: var(--default-text-color);
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Remove scroll on externally imported modal open */
+.ReactModal__Body--open {
+  overflow: hidden;
+}
+
+.full-width {
+  width: 100%;
 }

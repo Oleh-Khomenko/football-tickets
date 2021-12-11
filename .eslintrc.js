@@ -1,0 +1,95 @@
+module.exports = {
+  env: {
+    browser: true,
+    commonjs: true,
+    es6: true,
+    jest: true,
+    node: true,
+  },
+  extends: [
+    'eslint:recommended',
+    'plugin:import/recommended',
+    'plugin:react/recommended',
+    'plugin:jsx-a11y/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:jest/recommended',
+    'plugin:testing-library/react',
+  ],
+  parser: 'babel-eslint',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 2020,
+    sourceType: 'module',
+  },
+  plugins: [],
+  root: true,
+  rules: {
+    'react/jsx-no-target-blank': 'off',
+    'comma-dangle': ['error', 'always-multiline'],
+    complexity: ['error', { max: 10 }],
+    'eol-last': 'error',
+    eqeqeq: ['error', 'always'],
+    'import/order': [
+      'warn',
+      {
+        alphabetize: {
+          caseInsensitive: true,
+        },
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+        ],
+      },
+    ],
+    indent: ['error', 2],
+    'jsx-a11y/anchor-is-valid': 'warn',
+    'jsx-quotes': ['warn', 'prefer-double'],
+    'max-len': ['warn', { code: 120 }],
+    'no-alert': 'error',
+    'no-console': ['warn', { allow: ['warn', 'error'] }],
+    'no-debugger': 'warn',
+    'no-empty-function': 'warn',
+    'no-lonely-if': 'error',
+    'no-magic-numbers': ['warn', {
+      ignoreArrayIndexes: true,
+      ignoreDefaultValues: true,
+      ignore: [0, 1, 2],
+    }],
+    'no-multi-spaces': 'error',
+    'no-unused-vars': 'warn',
+    'object-curly-spacing': ['warn', 'always'],
+    'padded-blocks': ['error', 'never'],
+    quotes: ['warn', 'single'],
+    'react/jsx-curly-spacing': 'warn',
+    'react/jsx-filename-extension': [
+      'error',
+      { extensions: ['.js', '.jsx'] },
+    ],
+    'react/jsx-indent': [
+      'error',
+      2,
+      {
+        checkAttributes: true,
+        indentLogicalExpressions: true,
+      },
+    ],
+    'react/jsx-indent-props': ['error', 2],
+    'react/prop-types': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'sort-imports': [
+      'warn',
+      { ignoreDeclarationSort: true },
+    ],
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
+};
