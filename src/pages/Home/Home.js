@@ -1,25 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+
+// store
+import { requestCells, selectCells } from '../../store/client';
 
 // styles
 import styles from './Home.module.scss';
 
 export default function Home() {
+  const dispatch = useDispatch();
   const history = useHistory();
-  const [cells, setCells] = useState([]);
+  const cells = useSelector(selectCells);
 
   useEffect(() => {
-    const cells = [];
-
-    let counter = 0;
-    for (let i = 0; i < 8; i++) {
-      const temp = [];
-      for (let j = 0; j < 12; j++) {
-        temp.push(++counter);
-      }
-      cells.push(temp);
-    }
-    setCells(cells);
+    dispatch(requestCells());
   }, []);
 
   const routePush = (id) => () => {
@@ -37,10 +32,12 @@ export default function Home() {
               position: 'absolute',
               top: `calc(${i * 12.5}%)`,
               left: `calc(${j * 8.4}%)`,
+              background: el.color,
             }}
-            onClick={routePush(el)}
+            onClick={routePush(el.id)}
+            disabled={el.soldOut}
           >
-            {el}
+            {el.id}
           </button>
         );
       }
