@@ -1,0 +1,34 @@
+.footer_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 2rem;
+  background: rgba(100, 123, 97, 1);
+
+  img {
+    width: 250px;
+    padding: 1rem;
+    background: white;
+    border-radius: 4rem;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    p {
+      color: white;
+      font-weight: bold;
+      margin: 0 2rem;
+    }
+  }
+
+  @media (max-width: 38rem) {
+    flex-direction: column;
+  }
+
+  @media print {
+    display: none;
+  }
+}

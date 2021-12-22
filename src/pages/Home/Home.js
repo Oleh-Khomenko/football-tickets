@@ -1,53 +1,60 @@
-import { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-
-// store
-import { requestCells, selectCells } from '../../store/client';
+// assets
+import Ball from '../../assets/ball.png';
+import HandBall from '../../assets/hand-ball.png';
 
 // styles
 import styles from './Home.module.scss';
+import { NavLink } from 'react-router-dom';
 
 export default function Home() {
-  const dispatch = useDispatch();
-  const history = useHistory();
-  const cells = useSelector(selectCells);
-
-  useEffect(() => {
-    dispatch(requestCells());
-  }, []);
-
-  const routePush = (id) => () => {
-    history.push(`/home/${id}`);
-  }
-
-  function wrapCells() {
-    return cells.map((arr, i) => arr.map((el, j) => {
-      if ((i < 2 || i > 5) || (j < 2 || j > 9)) {
-        return (
-          <button
-            className={styles.cell}
-            key={(i + 1) * (j + 1)}
-            style={{
-              position: 'absolute',
-              top: `calc(${i * 12.5}%)`,
-              left: `calc(${j * 8.4}%)`,
-              background: el.color,
-            }}
-            onClick={routePush(el.id)}
-            disabled={el.soldOut}
-          >
-            {el.id}
-          </button>
-        );
-      }
-    }));
-  }
-
   return (
-    <div className={styles.content_wrapper}>
-      <div className={styles.stadium_wrapper}>
-        {wrapCells()}
+    <div className={styles.home_wrapper}>
+      <div className={styles.preview}>
+        <div>
+          <p>
+            Оберіть та придбайте квитки на матч прямо зараз!
+          </p>
+          <NavLink
+            to="/tickets"
+          >
+            Купити квитки
+          </NavLink>
+        </div>
+      </div>
+      {/* eslint-disable-next-line */}
+      <a id='about'/>
+      <div className={styles.about}>
+        <img src={Ball} alt="ball"/>
+        <p>
+          Футбол для нас більше, ніж просто спорт. Поточний 2021-й знову став «футбольним» роком в Україні після
+          перерви. У Києві пройде надзвичайно цікава та напружена гра команди Динамо і наші вболівальники отримали
+          можливість купити білети на матч.
+          <br/>
+          <br/>
+          За допомогою нашого сайту Ви можете обрати квитки на Олімпійському стадіоні. Для матчів практикується
+          перепродаж квитків на футбол, і тут ми допомагаємо і продавцям, і покупцям — надаємо свою площадку, щоб угода
+          була максимально безпечною
+        </p>
+      </div>
+      {/* eslint-disable-next-line */}
+      <a id='discounts'/>
+      <div className={styles.discounts}>
+        <div>
+          <h2>Акції та знижки:</h2>
+          <ul>
+            <li>
+              Позначте нас у соцмережах
+              та отримайте подарунок
+            </li>
+            <li>
+              Отримайте -10% на перше замовлення
+            </li>
+            <li>
+              При замовленні на суму 1500 гривень доставка - отримайте -15%
+            </li>
+          </ul>
+        </div>
+        <img src={HandBall} alt="hand ball"/>
       </div>
     </div>
   );

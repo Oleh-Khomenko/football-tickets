@@ -17,14 +17,24 @@ header {
     align-items: center;
     justify-content: center;
     margin-left: 2rem;
+
     & > * {
       display: block;
       font-size: 1.5rem;
       font-weight: bold;
     }
+
     & > *:not(:last-child) {
       margin-right: 2rem;
     }
+
+    .active_link {
+      color: rgba(183, 211, 182, 1);
+    }
+  }
+
+  @media print {
+    display: none;
   }
 }
 

@@ -1,0 +1,132 @@
+.content_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+
+  h1 {
+    font-weight: bold;
+    font-size: 3rem;
+    color: red;
+  }
+
+  .date {
+    margin-top: 1rem;
+    color: white;
+    text-align: center;
+  }
+
+  .prices {
+    width: 100%;
+    background: rgba(183, 211, 182, 1);
+    margin: 3rem;
+    padding: 1rem;
+    text-align: center;
+    color: rgba(0, 83, 105, 1);
+    font-weight: 600;
+    font-size: 1.5rem;
+
+    & > p {
+      padding: 1rem 0 2rem;
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      p {
+        padding: 1rem;
+        border: 1px solid black;
+      }
+
+      @media (max-width: 35rem) {
+        flex-direction: column;
+        p {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.stadium_wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 250px;
+  height: 70vh;
+  max-height: 600px;
+  width: 100%;
+
+  img {
+    display: block;
+    max-width: 1000px;
+    width: 100%;
+    height: 45%;
+    padding: 0 7rem;
+
+    @media (max-width: 35rem) {
+      padding: 0 5rem;
+    }
+    @media (max-width: 28rem) {
+      padding: 0 4rem;
+    }
+    @media (max-width: 23rem) {
+      padding: 0 3rem;
+    }
+  }
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4em;
+  padding: 1rem;
+
+  opacity: 1;
+  box-sizing: border-box;
+  border: 1px solid black;
+
+  font-size: 1rem;
+  font-weight: bold;
+
+  cursor: pointer;
+  transition: 0.3s ease-in-out all;
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+}
+
+@media (max-width: 48rem) {
+  .cell {
+    min-width: 2em;
+    padding: 0.5rem;
+  }
+}
+
+.cell_prices {
+  margin-top: 2rem;
+}
+
+@media (max-width: 34rem) {
+  .cell {
+    font-size: 0.8rem!important;
+    padding: 0.25rem;
+  }
+}
+
+@media (max-width: 25rem) {
+  .cell {
+    font-size: 0.6rem!important;
+    padding: 0.25rem;
+  }
+}

@@ -9,14 +9,32 @@ import styles from './Header.module.scss';
 export default function Header() {
   return (
     <header>
-      <img src={LOGO} alt="LOGO"/>
+      <NavLink to="/">
+        <img src={LOGO} alt="LOGO"/>
+      </NavLink>
       <div className={styles.nav}>
-        <NavLink to="/home">
+        <NavLink
+          to="/tickets/"
+          activeClassName={styles.active_link}
+        >
           Квитки
         </NavLink>
-        <a href="">Знижки</a>
-        <a href="">Контакти</a>
-        <a href="">Про нас</a>
+        <a
+          href="/#about"
+        >
+          Про нас
+        </a>
+        <a
+          href="/#discounts"
+        >
+          Знижки
+        </a>
+        
+        <a
+          href="/#contacts"
+        >
+          Контакти
+        </a>
       </div>
     </header>
   );
